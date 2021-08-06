@@ -1,0 +1,39 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-case-conflict
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+
+-   repo: local
+    hooks:
+    -   id: isort
+        args: ["--profile", "black"]
+        name: isort-local
+        entry: isort
+        language: python
+        types: [python]
+        pass_filenames: true
+    -   id: black
+        name: black-local
+        entry: black
+        language: python
+        types: [python]
+        pass_filenames: true
+    -   id: pylint
+        name: pylint-local
+        entry: pylint --output-format=colorized
+        language: python
+        types: [python]
+        pass_filenames: true
+    -   id: flake8
+        name: flake8-local
+        entry: flake8
+        language: python
+        types: [python]
+        pass_filenames: true
