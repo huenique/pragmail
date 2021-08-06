@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "pragmail"
+version = "0.1.0"
+description = "Simple library for retrieving and repackaging email messages."
+readme = "README.md"
+authors = ["Hju Kneyck Flores <hjucode@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+black = "^21.7b0"
+coverage = "^5.5"
+flake8 = "^3.9.2"
+isort = "^5.9.3"
+lazydocs = "^0.4.8"
+mypy = "^0.910"
+pre-commit = "^2.13.0"
+pylint = "^2.9.6"
+pytest = "^6.2.4"
+wheel = "^0.36.2"
+
+[tool.pylint.MASTER]
+ignore-paths = ["^tests/.*$"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
