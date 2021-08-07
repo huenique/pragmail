@@ -8,7 +8,7 @@ from imaplib import IMAP4, IMAP4_SSL
 from ssl import SSLContext, create_default_context
 from typing import Any, Optional, Union
 
-from pragmail.exceptions import catch_exception
+from pragmail.exceptions import _catch_exception
 from pragmail.utils import (
     date_format,
     date_travel,
@@ -68,14 +68,14 @@ class _Client:
         dat = [str(dat.decode()) for dat in dat_uids]
         return src, dat
 
-    @catch_exception
+    @_catch_exception
     def _search(self, criterion: str) -> _CommandResults:
         """Private method similar to `IMAP4.search` but the charset is
         specified in the request to the server.
         """
         return self.imap4.search(None, criterion)
 
-    @catch_exception
+    @_catch_exception
     def _fetch(
         self,
         msg_set: str,
@@ -86,7 +86,7 @@ class _Client:
         """
         return self.imap4.fetch(msg_set, msg_parts)
 
-    @catch_exception
+    @_catch_exception
     def logout(self) -> bool:
         """Similar to `IMAP4.logout` but also calls `IMAP4.close`, which
         sends a `CLOSE` command to the server, and is guaranteed to
@@ -100,7 +100,7 @@ class _Client:
 
         return True
 
-    @catch_exception
+    @_catch_exception
     def latest_message(
         self,
         sender: str,
@@ -158,11 +158,11 @@ class _Client:
 
         raise Exception(f"Message not found: {latest_uid}")
 
-    @catch_exception
+    @_catch_exception
     def __enter__(self):
         return self
 
-    @catch_exception
+    @_catch_exception
     def __exit__(self, exc_type, exc_value, trace):
         if self.imap4.state == "LOGOUT":
             return
