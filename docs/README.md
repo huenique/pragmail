@@ -16,7 +16,6 @@
 
 ## Functions
 
-- [`exceptions.catch_exception`](./exceptions.md#function-catch_exception): Function wrapper for catching exceptions and applying pragmail's
 - [`utils.date_format`](./utils.md#function-date_format): Convert date to IMAP SEARCH Command acceptable format.
 - [`utils.date_travel`](./utils.md#function-date_travel): Returns the date by day beginning from today.
 - [`utils.email_domain`](./utils.md#function-email_domain): Get the domain name from the email address.
