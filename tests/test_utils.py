@@ -25,14 +25,18 @@ class TestPing:
 
 class TestReadMessage:
     nbyte_msg = b"\nmessage"
+    nstr_msg = "\nmessage"
     byte_msg = b"message"
     str_msg = "message"
 
-    def test_read_message_bytes(self):
-        utils.read_message(self.byte_msg) == self.str_msg
+    def test_read_message_from_bytes(self):
+        assert utils.read_message(self.byte_msg) == self.nbyte_msg
 
-    def test_read_message_string(self):
+    def test_read_message_from_string(self):
         assert utils.read_message(self.str_msg) == self.nbyte_msg
+
+    def test_read_message_from_bytes_as_string(self):
+        assert utils.read_message(self.byte_msg, True) == self.nstr_msg
 
     def test_read_message_binary_file(self):
         with open(TEST_FILE_BIN, "wb") as fp:
