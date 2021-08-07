@@ -13,7 +13,7 @@ class CommandError(AttributeError, ValueError):
     """Exception raised when command usage is invalid."""
 
 
-def catch_exception(func):
+def _catch_exception(func):
     """Function wrapper for catching exceptions and applying pragmail's
     custom exceptions.
     """
