@@ -1,4 +1,5 @@
-.PHONY: clean clean-test clean-pyc clean-build clean-mypy help format
+.PHONY: clean clean-test clean-pyc clean-build clean-mypy help
+.SILENT: format format-black format-import
 .DEFAULT_GOAL := help
 
 define PRINT_HELP_PYSCRIPT
@@ -39,29 +40,23 @@ clean-mypy: ## remove mypy artifacts
 	rm -fr .mypy_cache
 
 lint: ## check style with flake8
-	flake8 sample_package tests
+	flake8 pragmail/ tests/ example/
+	pylint pragmail/ tests/ example/
 
-test: ## quickly run tests
-	python setup.py test
-
-coverage: ## check code coverage
-	coverage run --source sample_package setup.py test
-	coverage report -m
+test: ## run tests and check code coverage
+	pytest -v --cov=pragmail tests/
 	coverage html
-	$(BROWSER) htmlcov/index.html
 
 dist: clean ## build source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
-	ls -l dist
+	poetry build
 
 install: clean ## install the package to the active Python's site-packages
-	python setup.py install
+	poetry install
 
-format: format-black sort-import ## format codebase using standard formatters
+format: format-black format-import ## format codebase using standard formatters
 
 format-black: ## format code using black
-	python -m black pragmail/ tests/
+	black pragmail/ tests/ example/
 
-sort-import: ## sort imports in codebase
-	python -m isort -rc pragmail/ tests/
+format-import: ## sort imports in codebase
+	isort --profile black pragmail/ tests/ example/
