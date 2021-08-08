@@ -31,5 +31,9 @@ class TestClient:
         )
         assert " ".join(class_repr.split()) == match_repr
 
-    def test_client_logout(self):
+    def test_logout(self):
         assert self.client.logout()
+
+    def test_latest_message_raises(self):
+        with pytest.raises(Exception):
+            self.client.latest_message("John Smith", 0)
