@@ -17,10 +17,10 @@ Example usage:
 >>> client.imap4.logout()
 ('BYE', [b'LOGOUT Requested'])
 """
-from . import utils
-from .__version__ import __version__
-from .clients import Client
-from .exceptions import CommandError, IMAP4Error
+from pragmail import utils
+from pragmail.__version__ import __version__
+from pragmail.clients import Client
+from pragmail.exceptions import CommandError, IMAP4Error
 
 __url__ = "https://github.com/huenique/pragmail"
 __author__ = "Hju Kneyck (hjucode@gmail.com)"
