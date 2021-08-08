@@ -18,22 +18,23 @@ repos:
         entry: isort
         language: python
         types: [python]
-        pass_filenames: true
     -   id: black
         name: black-local
         entry: black
         language: python
         types: [python]
-        pass_filenames: true
     -   id: pylint
         name: pylint-local
         entry: pylint --output-format=colorized
         language: python
         types: [python]
-        pass_filenames: true
     -   id: flake8
         name: flake8-local
         entry: flake8
         language: python
         types: [python]
-        pass_filenames: true
+    -   id: pytest
+        name: pytest-local
+        entry: pytest --cov=pragmail tests
+        language: python
+        types: [python]
