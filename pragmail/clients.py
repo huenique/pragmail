@@ -6,7 +6,7 @@ as well.
 """
 from imaplib import IMAP4, IMAP4_SSL
 from ssl import SSLContext, create_default_context
-from typing import Any, Optional, Union
+from typing import Optional, Union
 
 from pragmail.exceptions import _catch_exception
 from pragmail.utils import (
@@ -19,7 +19,6 @@ from pragmail.utils import (
 
 TEXT_MESSSAGE = "(RFC822)"
 
-_CommandResults = Union[tuple, tuple[Any, list[None]]]
 _NoResponseData = list[None]
 _ResponseData = list[Union[bytes, tuple[bytes, bytes]]]
 _AnyResponseData = Union[_NoResponseData, _ResponseData]
@@ -31,10 +30,10 @@ class _Client:
     imap4: IMAP4
 
     @staticmethod
-    def _fetch_server_settings(host: str) -> str:
+    def _fetch_server_settings(user: str) -> str:
         """Fetch mail server settings."""
         url: str = ""
-        serv = server_settings(host, "ES")
+        serv = server_settings(user, "ES")
         setts = serv["ES"].get("settings")
 
         if not isinstance(setts, list):
@@ -67,24 +66,6 @@ class _Client:
         src = [str(src.decode()) for src in src_uids]
         dat = [str(dat.decode()) for dat in dat_uids]
         return src, dat
-
-    @_catch_exception
-    def _search(self, criterion: str) -> _CommandResults:
-        """Private method similar to `IMAP4.search` but the charset is
-        specified in the request to the server.
-        """
-        return self.imap4.search(None, criterion)
-
-    @_catch_exception
-    def _fetch(
-        self,
-        msg_set: str,
-        msg_parts: str,
-    ) -> tuple[str, _AnyResponseData]:
-        """Private method used to shorten internal calls to
-        `IMAP4.fetch`.
-        """
-        return self.imap4.fetch(msg_set, msg_parts)
 
     @_catch_exception
     def logout(self) -> bool:
@@ -140,8 +121,8 @@ class _Client:
         latest_uid = 0
         sentsince = date_format(date_travel(date_range))
         src, dat = self._decode_search_res(
-            self._search(f'(FROM "{sender}")')[1],
-            self._search(f"(SENTSINCE {sentsince})")[1],
+            self.imap4.search(None, f'(FROM "{sender}")')[1],
+            self.imap4.search(None, f"(SENTSINCE {sentsince})")[1],
         )
 
         for uid in dat[0].split(" "):
@@ -154,7 +135,7 @@ class _Client:
                     latest_uid = _uid
 
         if latest_uid > 0:
-            return self._fetch(str(latest_uid), message_parts)
+            return self.imap4.fetch(str(latest_uid), message_parts)
 
         raise Exception(f"Message not found: {latest_uid}")
 
@@ -207,7 +188,7 @@ class Client(_Client):
             timeout (float, optional): Connection timeout. Defaults to 5.0.
         """
         if "@" in host:
-            host = self._fetch_server_settings(host)
+            host = self._fetch_server_settings(host).replace("imap://", "")
         elif "imap" not in host:
             host = self._fetch_url_scheme(host)
             if not self._check_connectivity(host):
