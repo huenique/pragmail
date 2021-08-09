@@ -2,7 +2,6 @@
 Implementation of custom exceptions for pragmail.
 """
 from functools import wraps
-from imaplib import IMAP4
 
 
 class IMAP4Error(Exception):
@@ -22,8 +21,6 @@ def _catch_exception(func):
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
-        except (IMAP4.error, IMAP4.abort) as imap_err:
-            raise IMAP4Error(imap_err) from imap_err
         except (AttributeError, ValueError) as common_err:
             raise CommandError(common_err) from common_err
         except Exception as generic_err:
