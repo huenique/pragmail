@@ -4,7 +4,9 @@ import pytest
 
 import pragmail
 
+CLIENT = pragmail.Client
 IMAP_SERVER = "imap.gmail.com"
+KNOWN_USER_EMAIL = "example@gmail.com"
 
 
 class TestClient:
@@ -37,3 +39,28 @@ class TestClient:
     def test_latest_message_raises(self):
         with pytest.raises(Exception):
             self.client.latest_message("John Smith", 0)
+
+
+def test_fetch_server_settings():
+    fetch_server_settings = CLIENT._fetch_server_settings
+    assert fetch_server_settings(KNOWN_USER_EMAIL) == IMAP_SERVER
+
+
+def test_fetch_url_scheme():
+    fetch_url_scheme = CLIENT._fetch_url_scheme
+    assert fetch_url_scheme("gmail") == "imap://" + IMAP_SERVER
+
+
+def test_check_connectivity():
+    check_connectivity = CLIENT._check_connectivity
+    assert isinstance(check_connectivity(IMAP_SERVER), bool)
+
+
+def test_decode_search_res():
+    decode_search_res = CLIENT._decode_search_res
+    byte_list = [b"0"]
+    byte_list_decoded = list(byte_list[0].decode())
+    assert decode_search_res(byte_list, byte_list) == (
+        byte_list_decoded,
+        byte_list_decoded,
+    )
