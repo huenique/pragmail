@@ -21,6 +21,7 @@ pylint = "^2.9.6"
 pytest = "^6.2.4"
 wheel = "^0.36.2"
 pytest-cov = "^2.12.1"
+gitlint = "^0.15.1"
 
 [tool.pylint.MASTER]
 ignore-paths = ["^tests/.*$"]
