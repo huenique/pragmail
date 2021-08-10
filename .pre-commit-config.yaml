@@ -35,6 +35,6 @@ repos:
         types: [python]
     -   id: pytest
         name: pytest-local
-        entry: pytest --cov=pragmail tests
+        entry: pytest -v
         language: python
         types: [python]
