@@ -4,9 +4,9 @@
 
 ## Modules
 
-- [`clients`](./clients.md#module-clients): This module contains the abstraction that will allow the user to quickly
+- [`clients`](./clients.md#module-clients): This module contains the abstraction that will allow the user to quickly get
 - [`exceptions`](./exceptions.md#module-exceptions): Implementation of custom exceptions for pragmail.
-- [`utils`](./utils.md#module-utils): This module provides useful functions that facilitate pragmail's
+- [`utils`](./utils.md#module-utils): This module provides useful functions that facilitate pragmail's routine
 
 ## Classes
 
@@ -20,7 +20,7 @@
 - [`utils.date_travel`](./utils.md#function-date_travel): Returns the date by day beginning from today.
 - [`utils.email_domain`](./utils.md#function-email_domain): Get the domain name from the email address.
 - [`utils.imap_scheme`](./utils.md#function-imap_scheme): Convert domain name to an rfc5092-compliant IMAP URL scheme.
-- [`utils.ping_host`](./utils.md#function-ping_host): Use the system's network utility to check if the server responds
+- [`utils.ping_host`](./utils.md#function-ping_host): Use the system's network utility to check if the server responds to a
 - [`utils.read_message`](./utils.md#function-read_message): Parse email message.
 - [`utils.server_settings`](./utils.md#function-server_settings): Fetch mail server specifications using third party services.
 

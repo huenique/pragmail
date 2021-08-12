@@ -1,6 +1,6 @@
 """
-This module provides useful functions that facilitate pragmail's
-routine operations.
+This module provides useful functions that facilitate pragmail's routine
+operations.
 """
 import calendar
 import datetime
@@ -27,8 +27,8 @@ def date_format(date_ymd: str) -> str:
         date_ymd (str): The date in `YYYY-MM-DD` format.
 
     Returns:
-        str: The date in `DD-MM-YYYY` format and the month replaced with
-        its abbreviated form.
+        str: The date in `DD-MM-YYYY` format and the month replaced with its
+            abbreviated form.
     """
     date = date_ymd.split("-")[::-1]
     return f"{date[0]}-{calendar.month_abbr[int(date[1])]}-{date[2]}"
@@ -60,8 +60,8 @@ def email_domain(email: str) -> str:
 
 
 def ping_host(host) -> bool:
-    """Use the system's network utility to check if the server responds
-    to a ping request.
+    """Use the system's network utility to check if the server responds to a
+    ping request.
 
     Args:
         host ([type]): IP address of the server or the host name.
@@ -94,8 +94,8 @@ def read_message(
 
     Args:
         message (Union[bytes, str, BinaryIO, TextIO]): The message object.
-        as_string (Optional[bool[], optional): Parse the message object
-            and return a string. Defaults to False.
+        as_string (Optional[bool[], optional): Parse the message object and
+            return a string. Defaults to False.
 
     Returns:
         Union[str, bytes]: Parsed email message.

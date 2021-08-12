@@ -1,8 +1,7 @@
 """
-This module contains the abstraction that will allow the user to quickly
-get started with pragmail. For now, the base features that check for
-messages in a specified account on an IMAP mail server can be found here
-as well.
+This module contains the abstraction that will allow the user to quickly get
+started with pragmail. For now, the base features that check for messages in a
+specified account on an IMAP mail server can be found here as well.
 """
 from imaplib import IMAP4, IMAP4_SSL
 from ssl import SSLContext, create_default_context
@@ -88,29 +87,29 @@ class _Client:
         date_range: int = -1,
         message_parts: str = TEXT_MESSSAGE,
     ) -> tuple[str, _AnyResponseData]:
-        """Convenience method for retrieving the latest message from
-        a specified sender.
+        """Convenience method for retrieving the latest message from a
+        specified sender.
 
-        Use the largest UID to get the most recent message. Since the
-        search key `ON` command cannot guarantee a result, this method
-        uses `SENTSINCE` and the days prior today —represented by
-        negative integers.
+        Use the largest UID to get the most recent message. Since the search
+        key `ON` command cannot guarantee a result, this method uses
+        `SENTSINCE` and the days prior today —represented by negative
+        integers.
 
         Args:
-            sender (str): String contained in the envelope structure's
-                FROM field.
-            date_range (int, optional): Time frame or days in which a
-                message is expected to be present. Defaults to -1.
-            message_parts (str, optional): Message data item names.
-                Defaults to TEXT_MESSSAGE (RFC822/BODY[]).
+            sender (str): String contained in the envelope structure's FROM
+                field.
+            date_range (int, optional): Time frame or days in which a message
+                is expected to be present. Defaults to -1.
+            message_parts (str, optional): Message data item names. Defaults
+                to TEXT_MESSSAGE (RFC822/BODY[]).
 
         Raises:
             Exception: Raised when date_range is greater than -1.
             Exception: No message was found from specified sender.
 
         Returns:
-            tuple[str, _AnyResponseData]: IMAP response type and the
-                message data.
+            tuple[str, _AnyResponseData]: IMAP response type and the message
+                data.
         """
         if date_range > -1:
             raise Exception(
@@ -162,8 +161,7 @@ class _Client:
 class Client(_Client):
     """Readonly client connection to mail server.
 
-    Based on `imaplib.IMAP4`, allowing a certain degree of user
-        flexibility.
+    Based on `imaplib.IMAP4`, allowing a certain degree of user flexibility.
 
     For more information and further usage, visit:
     - https://docs.python.org/3/library/imaplib.html
@@ -179,12 +177,11 @@ class Client(_Client):
     ) -> None:
         """
         Args:
-            host (str): The service's domain name, IMAP server URL or
-                user email.
+            host (str): The service's domain name, IMAP server URL or user
+                email.
             port (int, optional): IMAP port (e.g. 143). Defaults to 993.
-            ssl_context (Optional[SSLContext], optional): Client SSL
-                Context. If `None`, pragmail uses
-                    `ssl.create_default_context`
+            ssl_context (Optional[SSLContext], optional): Client SSL Context.
+                If `None`, pragmail uses `ssl.create_default_context`
             timeout (float, optional): Connection timeout. Defaults to 5.0.
         """
         if "@" in host:

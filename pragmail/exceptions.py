@@ -13,8 +13,8 @@ class CommandError(AttributeError, ValueError):
 
 
 def _catch_exception(func):
-    """Function wrapper for catching exceptions and applying pragmail's
-    custom exceptions.
+    """Function wrapper for catching exceptions and applying pragmail's custom
+    exceptions.
     """
 
     @wraps(func)
