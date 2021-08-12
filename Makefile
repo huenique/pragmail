@@ -60,3 +60,8 @@ format-black: ## format code using black
 
 format-import: ## sort imports in codebase
 	isort --profile black pragmail/ tests/ example/
+
+setup-dev: ## setup development environment
+	poetry shell
+	poetry install
+	pre-commit install --hook-type commit-msg
