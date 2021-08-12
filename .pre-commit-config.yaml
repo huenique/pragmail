@@ -38,6 +38,8 @@ repos:
         entry: pytest -v
         language: python
         types: [python]
+        always_run: false
+        pass_filenames: false
 
 -   repo: https://github.com/jorisroovers/gitlint
     rev: '1a0ed8d03ac002f74f1b33706d509dcb4425ab4d'
