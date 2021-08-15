@@ -33,7 +33,7 @@ clean-pyc: ## remove Python file artifacts
 
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
-	rm -fr htmlcov/
+	rm -fr tests/htmlcov/
 	rm -fr .pytest_cache
 
 clean-mypy: ## remove mypy artifacts
@@ -44,8 +44,12 @@ lint: ## check style with flake8
 	pylint pragmail/ tests/ example/
 
 test: ## run tests and check code coverage
+	rm -f coverage/.coverage
+	rm -rf coverage/htmlcov
+	rm -f coverage/coverage.xml
 	pytest -v --cov=pragmail tests/
 	coverage html
+	coverage xml
 
 dist: clean ## build source and wheel package
 	poetry build
