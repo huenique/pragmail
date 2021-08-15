@@ -9,6 +9,7 @@ repos:
     -   id: check-case-conflict
     -   id: detect-private-key
     -   id: end-of-file-fixer
+        exclude: ^(coverage/|.coverage)
     -   id: trailing-whitespace
 
 -   repo: local
