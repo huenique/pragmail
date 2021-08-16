@@ -16,9 +16,6 @@ TEST_FILE_TXT = "test_file.txt"
 
 
 class TestPing:
-    def test_ping_known_name(self):
-        assert utils.ping_host(IMAP_SERVER) is True
-
     def test_ping_unknown_name(self):
         assert utils.ping_host(FAKE_IMAP_SERVER) is False
 
