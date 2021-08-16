@@ -1,4 +1,5 @@
 # pragmail
+[![codecov](https://codecov.io/gh/huenique/pragmail/branch/main/graph/badge.svg?token=XXYW6MUCY4)](https://codecov.io/gh/huenique/pragmail)
 
 pragmail is a library for retrieving email messages for other useful software applications.
 
