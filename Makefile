@@ -33,7 +33,7 @@ clean-pyc: ## remove Python file artifacts
 
 clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
-	rm -fr htmlcov/
+	rm -fr coverage/htmlcov
 	rm -fr .pytest_cache
 
 clean-mypy: ## remove mypy artifacts
@@ -45,6 +45,10 @@ lint: ## check style with flake8
 
 test: ## run tests and check code coverage
 	pytest -v --cov=pragmail tests/
+
+test-cov: ## run tests and genererate coverage files
+	pytest -v --cov=pragmail tests/
+	coverage xml
 	coverage html
 
 dist: clean ## build source and wheel package
