@@ -1,9 +1,8 @@
-# pragmail
-[![codecov](https://codecov.io/gh/huenique/pragmail/branch/main/graph/badge.svg?token=XXYW6MUCY4)](https://codecov.io/gh/huenique/pragmail)
+# pragmail [![codecov](https://codecov.io/gh/huenique/pragmail/branch/main/graph/badge.svg?token=XXYW6MUCY4)](https://codecov.io/gh/huenique/pragmail) [![python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 pragmail is a library for retrieving email messages for other useful software applications.
 
-It's based on several of Python's standard libraries for internet protocols and support, allowing a certain degree of user flexibility and hence providing little abstraction and only adding useful functions and methods for convenience.
+It's tightly based on several of Python's built-in modules for internet protocols and support, maintaining the same degree of user flexibility.
 
 Example usage:
 ```python
@@ -20,6 +19,8 @@ Example usage:
 >>> client.imap4.logout()
 ('BYE', [b'LOGOUT Requested'])
 ```
+
+As shown, pragmail doesn't provide unnecessary abstraction, but it does equip you with several utility functions and a few useful methods.
 
 # Installing
 
