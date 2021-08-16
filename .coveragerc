@@ -1,0 +1,8 @@
+[run]
+source=pragmail
+
+[html]
+directory = coverage/htmlcov
+
+[xml]
+output = coverage/reports/coverage.xml
