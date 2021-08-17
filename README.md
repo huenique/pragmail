@@ -2,7 +2,7 @@
 
 pragmail is a library for retrieving email messages for other useful software applications.
 
-It's tightly based on several of Python's built-in modules for internet protocols and support, maintaining the same degree of user flexibility.
+It extends Python's built-in modules for internet protocols and support, maintaining the same degree of user flexibility.
 
 Example usage:
 ```python
@@ -20,7 +20,7 @@ Example usage:
 ('BYE', [b'LOGOUT Requested'])
 ```
 
-As shown, pragmail doesn't provide unnecessary abstraction, but it does equip you with several utility functions and a few useful methods.
+pragmail also quips you with several utility functions and a few useful methods for managing retrieved email messages. Please refer to the documentation for details.
 
 # Installing
 
