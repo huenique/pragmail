@@ -20,7 +20,7 @@ Example usage:
 ('BYE', [b'LOGOUT Requested'])
 ```
 
-As shown, pragmail doesn't provide unnecessary abstraction, but it does equip you with several utility functions and a few useful methods.
+As shown, pragmail doesn't provide unnecessary abstraction, but it does equip you with several utility functions and a few useful methods. Please refer to the documentation for details.
 
 # Installing
 
