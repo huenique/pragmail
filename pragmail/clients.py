@@ -5,7 +5,7 @@ specified account on an IMAP mail server can be found here as well.
 """
 from imaplib import IMAP4, IMAP4_SSL
 from ssl import SSLContext, create_default_context
-from typing import Optional, Union
+from typing import Literal, Optional, Union
 
 from pragmail.exceptions import _catch_exception
 from pragmail.utils import (
@@ -67,10 +67,34 @@ class _Client:
         return src, dat
 
     @_catch_exception
+    def login(
+        self,
+        username: str,
+        password: str,
+    ) -> tuple[Literal["OK"], list[bytes]]:
+        """Identify the client and authenticate the user using plaintext
+        password.
+
+        Args:
+            username (str): The user's username.
+            password (str): The user's password.
+
+        Raises:
+            Exception: Raised if username or password was rejected.
+
+        Returns:
+            tuple[Literal['OK'], list[bytes]]: Non-specific response.
+        """
+        return self.imap4.login(username, password)
+
+    @_catch_exception
     def logout(self) -> bool:
         """Similar to `IMAP4.logout` but also calls `IMAP4.close`, which
-        sends a `CLOSE` command to the server, and is guaranteed to
-        almost always work.
+            sends a `CLOSE` command to the server, and is guaranteed to
+            almost always work.
+
+        Returns:
+            bool: True for success, False otherwise.
         """
         if self.imap4.state == "SELECTED":
             self.imap4.close()
@@ -79,6 +103,19 @@ class _Client:
             self.imap4.logout()
 
         return True
+
+    @_catch_exception
+    def select(self, mailbox: str) -> tuple[str, list[Union[bytes, None]]]:
+        """Select a mailbox so that messages in the mailbox can be accessed.
+
+        Args:
+            mailbox (str): Mailbox name.
+
+        Returns:
+            tuple[str, list[Union[bytes, None]]]: The response type and count
+                of messages in the specified mailbox.
+        """
+        return self.imap4.select(mailbox=mailbox, readonly=True)
 
     @_catch_exception
     def latest_message(
