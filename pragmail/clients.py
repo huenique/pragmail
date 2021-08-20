@@ -29,42 +29,68 @@ class _Client:
     imap4: IMAP4
 
     @staticmethod
-    def _fetch_server_settings(user: str) -> str:
-        """Fetch mail server settings."""
+    def fetch_server_settings(user: str) -> str:
+        """Fetch mail server settings.
+
+        Args:
+            user (str): The user's complete email.
+
+        Raises:
+            Exception: If the mail server or its settings cannot be
+                identified.
+
+        Returns:
+            str: The mail server's URL.
+        """
         url: str = ""
         serv = server_settings(user, "ES")
         setts = serv["ES"].get("settings")
-
-        if not isinstance(setts, list):
-            if "not found" in setts.lower():
-                raise Exception
 
         for sett in setts:
             adr = sett.get("address")
             if "imap" in adr:
                 url = adr
+                break
 
         return url
 
     @staticmethod
-    def _fetch_url_scheme(host: str) -> str:
-        """Fetch required URL scheme."""
-        return imap_scheme(host)[0]
+    def fetch_url_scheme(domain_name: str) -> str:
+        """Fetch desired URL scheme.
+
+        Args:
+            host (str): The service's domain name.
+
+        Returns:
+            str: URL scheme.
+        """
+        return imap_scheme(domain_name)[0]
 
     @staticmethod
-    def _check_connectivity(host: str) -> bool:
-        """Check connectivity to host/server."""
+    def check_connectivity(host: str) -> bool:
+        """Check connectivity to host/server.
+
+        Args:
+            host (str): The host property of the URL interface.
+
+        Returns:
+            bool: True if host is reachable, False otherwise.
+        """
         return ping_host(host)
 
     @staticmethod
-    def _decode_search_res(
-        src_uids: list[bytes],
-        dat_uids: list[bytes],
-    ) -> tuple[list[str], list[str]]:
-        """Convert a list of bytes to a list of string object."""
-        src = [str(src.decode()) for src in src_uids]
-        dat = [str(dat.decode()) for dat in dat_uids]
-        return src, dat
+    def decode_search_res(uids: list[bytes]) -> list[str]:
+        """Convert a list of bytes to a list of string object.
+
+        Args:
+            src_uids (list[bytes]): A list of UIDs returned by the IMAP mail
+                server.
+            dat_uids (list[bytes]): [description]
+
+        Returns:
+            tuple[list[str], list[str]]: [description]
+        """
+        return [str(uid.decode()) for uid in uids]
 
     @_catch_exception
     def login(
@@ -156,8 +182,10 @@ class _Client:
 
         latest_uid = 0
         sentsince = date_format(date_travel(date_range))
-        src, dat = self._decode_search_res(
+        src = self.decode_search_res(
             self.imap4.search(None, f'(FROM "{sender}")')[1],
+        )
+        dat = self.decode_search_res(
             self.imap4.search(None, f"(SENTSINCE {sentsince})")[1],
         )
 
@@ -181,13 +209,7 @@ class _Client:
 
     @_catch_exception
     def __exit__(self, exc_type, exc_value, trace):
-        if self.imap4.state == "LOGOUT":
-            return
-
-        try:
-            self.imap4.logout()
-        except OSError:
-            pass
+        self.logout()
 
         if exc_type:
             print(f"exc_type: {exc_type}")
@@ -222,10 +244,10 @@ class Client(_Client):
             timeout (float, optional): Connection timeout. Defaults to 5.0.
         """
         if "@" in host:
-            host = self._fetch_server_settings(host).replace("imap://", "")
+            host = self.fetch_server_settings(host).replace("imap://", "")
         elif "imap" not in host:
-            host = self._fetch_url_scheme(host)
-            if not self._check_connectivity(host):
+            host = self.fetch_url_scheme(host).replace("imap://", "")
+            if not self.check_connectivity(host):
                 raise Exception("Name or service not known.")
 
         if port == 993:
@@ -262,3 +284,7 @@ class Client(_Client):
             ssl_context=self.ssl_context,
             timeout=self.timeout,
         )
+
+
+if __name__ == "__main__":
+    pass
