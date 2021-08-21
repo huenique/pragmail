@@ -7,7 +7,7 @@ import pytest
 from pragmail import utils
 
 IMAP_SERVER = "imap.gmail.com"
-FAKE_IMAP_SERVER = "imap.google.com"
+FAKE_IMAP_SERVER = "imap.fakeimapserver.com"
 DOMAIN_NAME = "gmail"
 KNOWN_USER_EMAIL = "example@gmail.com"
 UNKNOWN_USER_EMAIL = "example@unknown.com"
