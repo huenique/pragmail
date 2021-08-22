@@ -21,6 +21,7 @@ from pragmail import utils
 from pragmail.__version__ import __version__
 from pragmail.clients import Client
 from pragmail.exceptions import CommandError, IMAP4Error
+from pragmail.transports import TransportUtils, save_to_disk
 
 __url__ = "https://github.com/huenique/pragmail"
 __author__ = "Hju Kneyck (hjucode@gmail.com)"
