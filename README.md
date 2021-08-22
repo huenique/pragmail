@@ -8,9 +8,9 @@ Example usage:
 ```python
 >>> import pragmail
 >>> client = pragmail.Client("imap.domain.com")
->>> client.imap4.login("username", "password")
+>>> client.login("username", "password")
 ('OK', [b'username authenticated (Success)'])
->>> client.imap4.select("INBOX")
+>>> client.select("INBOX")
 ('OK', [b'1357'])
 >>> client.imap4.search(None, 'FROM', '"John Smith"')
 ('OK', [b'245 248 257 259'])
