@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pragmail"
-version = "0.1.0"
+version = "0.2.0"
 description = "Simple library for retrieving and repackaging email messages."
 readme = "README.md"
 authors = ["Hju Kneyck Flores <hjucode@gmail.com>"]
@@ -21,6 +21,7 @@ pylint = "^2.9.6"
 pytest = "^6.2.4"
 wheel = "^0.36.2"
 pytest-cov = "^2.12.1"
+python-dotenv = "^0.19.0"
 
 [tool.pylint.MASTER]
 ignore-paths = ["^tests/.*$"]

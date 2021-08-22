@@ -36,8 +36,8 @@ def get_medium_daily_digest():
     message.
     """
     with pragmail.Client("imap.gmail.com") as client:
-        client.imap4.login("user@gmail.com", "password")
-        client.imap4.select("INBOX")
+        client.login("user@gmail.com", "password")
+        client.select("INBOX")
         response, message = client.latest_message("Medium Daily Digest")
 
     if response == "OK":

@@ -69,3 +69,9 @@ setup-dev: ## setup development environment
 	poetry shell
 	poetry install
 	pre-commit install --hook-type commit-msg
+
+create-docs: ## generate documentation
+	lazydocs \
+		--overview-file="README.md" \
+		--src-base-url="https://github.com/hunique/pragmail/tree/main/" \
+		pragmail
