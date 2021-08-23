@@ -103,7 +103,7 @@ Use the system's network utility to check if the server responds to a ping reque
 
 **Returns:**
  
- - <b>`bool`</b>:  [description] 
+ - <b>`bool`</b>:  True if host is reachable, False otherwise. 
 
 
 ---
@@ -158,7 +158,7 @@ Fetch mail server specifications using third party services.
 
 **Returns:**
  
- - <b>`dict[str, Any]`</b>:  [description] 
+ - <b>`dict[str, Any]`</b>:  Dictionary containing the requested specifications. 
 
 
 ---

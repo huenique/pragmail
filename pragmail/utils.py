@@ -67,7 +67,7 @@ def ping_host(host) -> bool:
         host ([type]): IP address of the server or the host name.
 
     Returns:
-        bool: [description]
+        bool: True if host is reachable, False otherwise.
     """
     plat = platform.system().lower()
     c_param = "-n" if plat == "windows" else "-c"
@@ -124,7 +124,7 @@ def server_settings(email: str, provider: str) -> dict[str, Any]:
         provider (str): Service providing email settings lookup.
 
     Returns:
-        dict[str, Any]: [description]
+        dict[str, Any]: Dictionary containing the requested specifications.
     """
     providers = {
         "ES": "https://emailsettings.firetrust.com/settings?q={email}",
