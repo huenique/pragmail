@@ -159,13 +159,11 @@ def sanitize(fname: str) -> str:
     fname = unicodedata.normalize("NFKD", fname)
     fname = fname.rstrip(". ")
     fname = fname.strip()
+    fname = "__" if not fname else fname
 
-    if all((x == "." for x in fname)):
+    if fname in win_file or all((x == "." for x in fname)):
         fname = f"__{fname}"
-    if fname in win_file:
-        fname = f"__{fname}"
-    if len(fname) == 0:
-        fname = "__"
+
     if len(fname) > 255:
         parts = re.split(r"/|\\", fname)[-1].split(".")
         if len(parts) > 1:
@@ -173,16 +171,14 @@ def sanitize(fname: str) -> str:
             fname = fname[: -len(ext)]
         else:
             ext = ""
-        if fname == "":
-            fname = "__"
+        fname = "__" if not fname else fname
         if len(ext) > 254:
             ext = ext[254:]
         maxl = 255 - len(ext)
         fname = fname[:maxl]
         fname = fname + ext
         fname = fname.rstrip(". ")
-        if len(fname) == 0:
-            fname = "__"
+
     return fname
 
 
