@@ -152,7 +152,7 @@ def sanitize(fname: str) -> str:
         "LPT7",
         "LPT8",
         "LPT9",
-        "LPT10",
+        "LPT0",
     ]
     fname = "".join(c for c in fname if c not in blacklist)
     fname = "".join(c for c in fname if ord(c) > 31)
