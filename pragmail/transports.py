@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Optional, Sequence, Union
 
 from pragmail.clients import _ResponseData
+from pragmail.utils import sanitize
 
 FILE_EXTENTION = ".txt"
 
@@ -119,7 +120,7 @@ class TransportUtils:
         for idx, attachment in enumerate(message.iter_attachments()):
             attm_title = f"attachment_{idx}"
             ctype = attachment.get_content_type()
-            filename = attachment.get_filename()
+            filename = sanitize(attachment.get_filename())
             buffer = attachment.get_payload(decode=decode)
 
             msg_attm[attm_title] = {

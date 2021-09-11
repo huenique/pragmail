@@ -6,6 +6,8 @@ import calendar
 import datetime
 import json
 import platform
+import re
+import unicodedata
 from email import (
     message_from_binary_file,
     message_from_bytes,
@@ -114,6 +116,70 @@ def read_message(
     if as_string:
         return msg.as_string()
     return msg.as_bytes()
+
+
+def sanitize(fname: str) -> str:
+    """Sanitize filenames.
+
+    Args:
+        fname (str): The original filename.
+
+    Returns:
+        str: Fairly safe version of the filename.
+    """
+    blacklist = ["\\", "/", ":", "*", "?", '"', "<", ">", "|", "\0"]
+    win_file = [
+        "CON",
+        "PRN",
+        "AUX",
+        "NUL",
+        "COM1",
+        "COM2",
+        "COM3",
+        "COM4",
+        "COM5",
+        "COM6",
+        "COM7",
+        "COM8",
+        "COM9",
+        "COM0",
+        "LPT1",
+        "LPT2",
+        "LPT3",
+        "LPT4",
+        "LPT5",
+        "LPT6",
+        "LPT7",
+        "LPT8",
+        "LPT9",
+        "LPT10",
+    ]
+    fname = "".join(c for c in fname if c not in blacklist)
+    fname = "".join(c for c in fname if ord(c) > 31)
+    fname = unicodedata.normalize("NFKD", fname)
+    fname = fname.rstrip(". ")
+    fname = fname.strip()
+    fname = "__" if not fname else fname
+
+    if fname in win_file or all((x == "." for x in fname)):
+        fname = f"__{fname}"
+
+    if len(fname) > 255:
+        parts = re.split(r"/|\\", fname)[-1].split(".")
+        if len(parts) > 1:
+            ext = f".{parts.pop()}"
+            fname = fname[: -len(ext)]
+        else:
+            ext = ""
+        fname = "__" if not fname else fname
+        if len(ext) > 254:
+            ext = ext[254:]
+        maxl = 255 - len(ext)
+        fname = fname[:maxl]
+        fname = fname + ext
+        fname = fname.rstrip(". ")
+
+    return fname
 
 
 def server_settings(email: str, provider: str) -> dict[str, Any]:

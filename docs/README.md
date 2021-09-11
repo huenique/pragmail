@@ -25,6 +25,7 @@
 - [`utils.imap_scheme`](./utils.md#function-imap_scheme): Convert domain name to an rfc5092-compliant IMAP URL scheme.
 - [`utils.ping_host`](./utils.md#function-ping_host): Use the system's network utility to check if the server responds to a
 - [`utils.read_message`](./utils.md#function-read_message): Parse email message.
+- [`utils.sanitize`](./utils.md#function-sanitize): Sanitize filenames.
 - [`utils.server_settings`](./utils.md#function-server_settings): Fetch mail server specifications using third party services.
 
 
