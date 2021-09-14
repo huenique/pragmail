@@ -49,13 +49,12 @@ Ready to contribute? Here's how to set up `pragmail` for local development.
     $ git clone git@github.com:huenique/pragmail.git
     ```
 
-3. Install your local copy into a virtualenv. Assuming you have python venv installed, this is how you set up your fork for local development
+3. Install your local copy into a virtualenv. Assuming you have python [poetry](https://github.com/python-poetry/poetry) installed, this is how you set up your fork for local development
 
     ```
     $ cd pragmail/
-    $ python3.9 -m venv pragmail-venv
-    $ source pragmail-venv/bin/activate
-    $ poetry install  # Make sure poetry is installed
+    $ poetry shell
+    $ poetry install
     ```
 
 4. Create a branch for local development
@@ -66,11 +65,12 @@ Ready to contribute? Here's how to set up `pragmail` for local development.
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests
+5. When you're done making changes, check that your changes pass flake8, pylint and mypy.
 
     ```
-    $ flake8 pragmail tests
-    $ pytest -v
+    $ flake8 pragmail
+    $ pylint pragmail
+    $ mypy pragmail
     ```
 
 ## Commit Message Guidelines
@@ -88,11 +88,8 @@ Please open an issue before submitting, unless it's just a typo or some other sm
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.md.
-3. The pull request should work for Python 3.9 and above.
+1. If the pull request adds functionality, the docs should be updated. Implement your functionality with a docstring if needed.
+2. The pull request should work for Python 3.9 and above.
 
 Before making changes to the code, install the development requirements using
 
@@ -103,13 +100,27 @@ $ poetry install
 Before committing, stage your files and run style and linter checks
 
 ```
+$ black pragmail  # apply codestyle
+$ isort --profile black pragmail  # sort imports
+$ flake8 pragmail
+$ pylint pragmail
+$ mypy pragmail  # optional type checking
+```
+
+## Tips
+
+- Using pre-commit
+
+Run `pre-commit install` to set up the git hook scripts.
+
+pre-commit will unstage any files that do not pass. Fix the issues until all checks pass and commit.
+
+```
 $ git add .
 $ pre-commit run
 ```
 
-pre-commit will unstage any files that do not pass. Fix the issues until all checks pass and commit.
-
-## Tips
+- Running tests
 
 To run a subset of tests
 
