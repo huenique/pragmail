@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `transports`
 This module provides utilities for representing and restructuring RFC 2822 and MIME email messages for storage and transport. 
@@ -11,7 +11,7 @@ This module provides utilities for representing and restructuring RFC 2822 and M
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L259"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L259"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `save_to_disk`
 
@@ -33,7 +33,7 @@ Disassemble and restructure message instance as a txt file. Attachments are save
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L19"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L19"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `TransportUtils`
 Class containing methods for handling message objects. 
@@ -43,7 +43,7 @@ Class containing methods for handling message objects.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L193"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L193"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `create_directory`
 
@@ -67,7 +67,7 @@ Create a new directory in a given path.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L166"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L166"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `create_file`
 
@@ -89,7 +89,7 @@ Create a file with the specified name and write its content.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `data_as_bytes`
 
@@ -119,7 +119,7 @@ Bring out bytes-like object from response data.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L48"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `read_message`
 
@@ -154,7 +154,7 @@ Parse message object. This is identical to `pragmail.utils.read_message()` excep
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L228"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L228"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `save_attachments`
 
@@ -173,7 +173,7 @@ Extract and save files attached to the email message. The files will be stored i
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L215"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L215"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `write_to_file`
 
@@ -193,7 +193,7 @@ Write binary or text.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L102"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L102"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `xtract_attachments`
 
@@ -221,7 +221,7 @@ Extract message attachment.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L134"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `xtract_headers`
 
@@ -245,7 +245,7 @@ Retrieve the message's header fields and values.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/transports.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/transports.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `xtract_payload`
 

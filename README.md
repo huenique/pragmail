@@ -38,8 +38,8 @@ $ poetry install
 
 # Documentation
 
-Usage and reference documentation is found [here](https://github.com/huenique/pragmail/tree/main/docs).
+Usage and reference documentation is found [here](./docs).
 
 # Contributing
 
-Check the [contributing guide](https://github.com/huenique/pragmail/blob/main/.github/CONTRIBUTING.md) to learn more about the development process and how you can test your changes.
+Check the [contributing guide](./.github/CONTRIBUTING.md) to learn more about the development process and how you can test your changes.

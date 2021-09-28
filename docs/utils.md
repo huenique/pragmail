@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `utils`
 This module provides useful functions that facilitate pragmail's routine operations. 
@@ -8,7 +8,7 @@ This module provides useful functions that facilitate pragmail's routine operati
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `date_format`
 
@@ -33,7 +33,7 @@ Convert date to IMAP SEARCH Command acceptable format.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L39"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `date_travel`
 
@@ -58,7 +58,7 @@ Returns the date by day beginning from today.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L52"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L52"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `email_domain`
 
@@ -83,7 +83,7 @@ Get the domain name from the email address.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `ping_host`
 
@@ -108,7 +108,7 @@ Use the system's network utility to check if the server responds to a ping reque
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `read_message`
 
@@ -137,7 +137,7 @@ Parse email message.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L121"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L121"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `sanitize`
 
@@ -162,7 +162,7 @@ Sanitize filenames.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L185"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L185"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `server_settings`
 
@@ -188,7 +188,7 @@ Fetch mail server specifications using third party services.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/utils.py#L203"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/utils.py#L203"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `imap_scheme`
 

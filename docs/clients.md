@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `clients`
 This module contains the abstraction that will allow the user to quickly get started with pragmail. For now, the base features that check for messages in a specified account on an IMAP mail server can be found here as well. 
@@ -12,7 +12,7 @@ This module contains the abstraction that will allow the user to quickly get sta
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L220"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L220"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>class</kbd> `Client`
 Readonly client connection to mail server. 
@@ -23,7 +23,7 @@ For more information and further usage, visit:
 - https://docs.python.org/3/library/imaplib.html 
 - https://datatracker.ietf.org/doc/html/rfc2060.html 
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L230"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L230"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `__init__`
 
@@ -50,7 +50,7 @@ __init__(
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L69"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L69"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `check_connectivity`
 
@@ -74,7 +74,7 @@ Check connectivity to host/server.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L81"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L81"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `decode_search_res`
 
@@ -99,7 +99,7 @@ Convert a list of bytes to a list of string object.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L31"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `fetch_server_settings`
 
@@ -129,7 +129,7 @@ Fetch mail server settings.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/clients.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/clients.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `fetch_url_scheme`
 
@@ -153,7 +153,7 @@ Fetch desired URL scheme.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/exceptions.py#L146"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/exceptions.py#L146"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `latest_message`
 
@@ -192,7 +192,7 @@ Use the largest UID to get the most recent message. Since the search key `ON` co
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/exceptions.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/exceptions.py#L95"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `login`
 
@@ -223,7 +223,7 @@ Identify the client and authenticate the user using plaintext password.
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/exceptions.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/exceptions.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `logout`
 
@@ -241,7 +241,7 @@ Similar to `IMAP4.logout` but also calls `IMAP4.close`, which  sends a `CLOSE` c
 
 ---
 
-<a href="https://github.com/hunique/pragmail/tree/main/pragmail/exceptions.py#L133"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="./pragmail/exceptions.py#L133"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>method</kbd> `select`
 
