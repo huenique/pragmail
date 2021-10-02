@@ -1,4 +1,5 @@
 # flake8: noqa: F401
+# pylint: disable=C0414
 """
 pragmail
 ~~~~~~~~
@@ -19,9 +20,11 @@ Example usage:
 """
 from pragmail import utils
 from pragmail.__version__ import __version__
-from pragmail.clients import Client
-from pragmail.exceptions import CommandError, IMAP4Error
-from pragmail.transports import TransportUtils, save_to_disk
+from pragmail.clients import Client as Client
+from pragmail.exceptions import CommandError as CommandError
+from pragmail.exceptions import IMAP4Error as IMAP4Error
+from pragmail.transports import TransportUtils as TransportUtils
+from pragmail.transports import save_to_disk as save_to_disk
 
 __url__ = "https://github.com/huenique/pragmail"
 __author__ = "Hju Kneyck (hjucode@gmail.com)"
