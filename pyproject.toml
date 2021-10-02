@@ -5,6 +5,7 @@ description = "Simple library for retrieving and repackaging email messages."
 readme = "README.md"
 authors = ["Hju Kneyck Flores <hjucode@gmail.com>"]
 license = "MIT"
+include = ["pragmail/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
