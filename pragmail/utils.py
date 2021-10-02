@@ -108,9 +108,9 @@ def read_message(
         msg = message_from_bytes(message)
     elif isinstance(message, str):
         msg = message_from_string(message)
-    elif isinstance(message, BufferedIOBase):
+    elif isinstance(message, BinaryIO):
         msg = message_from_binary_file(message)
-    elif isinstance(message, TextIOBase):
+    elif isinstance(message, TextIO):
         msg = message_from_file(message)
 
     if as_string:

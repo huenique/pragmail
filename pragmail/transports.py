@@ -186,7 +186,7 @@ class TransportUtils:
         fpath.touch()
         if content is not None:
             if isinstance(content, str):
-                fpath.write_text(content)
+                fpath.write_text(content, encoding="utf-8")
             else:
                 fpath.write_bytes(content)
 
@@ -222,7 +222,7 @@ class TransportUtils:
             mode (str, optional): The mode in which the file is opened.
                 Defaults to "w".
         """
-        with open(filname, mode=mode) as file:
+        with open(filname, mode=mode, encoding="utf-8") as file:
             file.write(data)
 
     @staticmethod
@@ -280,6 +280,8 @@ def save_to_disk(
     if isinstance(msg, (EmailMessage, MIMEPart)):
         load = tpt.xtract_payload(msg)
         attm = tpt.xtract_attachments(msg)
+    else:
+        load, attm = None, None
 
     # Create a directory for the message attachments to be saved. If there are
     # no media file attached to the email message, create a directory anyway.
@@ -287,10 +289,11 @@ def save_to_disk(
     dpath = fpath.with_suffix("")
     attm_dpath = os.path.join(dpath, dpath)
 
-    tpt.create_directory(dpath)
-    tpt.save_attachments(attm, attm_dpath)
+    if isinstance(attm, dict):
+        tpt.create_directory(dpath)
+        tpt.save_attachments(attm, attm_dpath)
 
-    if load:
+    if isinstance(load, Message):
         tpt.create_file(filename, content=load.as_string())
 
 
