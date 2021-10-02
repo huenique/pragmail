@@ -4,8 +4,7 @@ server using pragmail.
 """
 import re
 
-import pragmail
-from pragmail import utils
+from pragmail import Client, utils
 
 
 def extract_mime_url(_message: bytes) -> list:
@@ -18,15 +17,15 @@ def extract_mime_url(_message: bytes) -> list:
     # Parse message body.
     body = utils.read_message(_message, as_string=True)
 
-    # Extract URLs.
-    if isinstance(body, str):
-        hrefs = re.findall(r'href=3D[\'"]?([^\'">?]+)', body)
+    if not isinstance(body, str):
+        body = str(body)
 
-        # Only include link to articles written by Medium users. Path to user
-        # profiles includes an `@` symbol and have less that three slashes.
-        for href in hrefs:
-            if href.count("/") > 3 and "@" in href:
-                uri.append(href.replace("=", ""))
+    # Extract URLs. Only include link to articles written by Medium users.
+    # Path to user profiles includes an "@" symbol and have greater than three
+    # slashes.
+    for href in re.findall(r'href=3D[\'"]?([^\'">?]+)', body):
+        if href.count("/") > 3 and "@" in href:
+            uri.append(href.replace("=", ""))
 
     return uri
 
@@ -35,7 +34,7 @@ def get_medium_daily_digest():
     """Retrieve relevant content URLs from the latest Medium Daily Digest
     message.
     """
-    with pragmail.Client("imap.gmail.com") as client:
+    with Client("imap.gmail.com") as client:
         client.login("user@gmail.com", "password")
         client.select("INBOX")
         response, message = client.latest_message("Medium Daily Digest")
