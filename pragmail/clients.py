@@ -7,14 +7,9 @@ from imaplib import IMAP4, IMAP4_SSL
 from ssl import SSLContext, create_default_context
 from typing import Literal, Optional, Union
 
-from pragmail.exceptions import _catch_exception
-from pragmail.utils import (
-    date_format,
-    date_travel,
-    imap_scheme,
-    ping_host,
-    server_settings,
-)
+from pragmail.exceptions import catch_exception
+from pragmail.utils import (date_format, date_travel, imap_scheme, ping_host,
+                            server_settings)
 
 TEXT_MESSSAGE = "(RFC822)"
 
@@ -92,7 +87,7 @@ class _Client:
         """
         return [str(uid.decode()) for uid in uids]
 
-    @_catch_exception
+    @catch_exception
     def login(
         self,
         username: str,
@@ -113,7 +108,7 @@ class _Client:
         """
         return self.imap4.login(username, password)
 
-    @_catch_exception
+    @catch_exception
     def logout(self) -> bool:
         """Similar to `IMAP4.logout` but also calls `IMAP4.close`, which
             sends a `CLOSE` command to the server, and is guaranteed to
@@ -130,7 +125,7 @@ class _Client:
 
         return True
 
-    @_catch_exception
+    @catch_exception
     def select(self, mailbox: str) -> tuple[str, list[Union[bytes, None]]]:
         """Select a mailbox so that messages in the mailbox can be accessed.
 
@@ -143,7 +138,7 @@ class _Client:
         """
         return self.imap4.select(mailbox=mailbox, readonly=True)
 
-    @_catch_exception
+    @catch_exception
     def latest_message(
         self,
         sender: str,
@@ -203,12 +198,12 @@ class _Client:
 
         raise Exception(f"Message not found: {latest_uid}")
 
-    @_catch_exception
+    @catch_exception
     def __enter__(self):
         return self
 
-    @_catch_exception
-    def __exit__(self, exc_type, exc_value, trace):
+    @catch_exception
+    def __exit__(self, exc_type: str, exc_value: str, trace: str):
         self.logout()
 
         if exc_type:
@@ -286,5 +281,4 @@ class Client(_Client):
         )
 
 
-if __name__ == "__main__":
-    pass
+ResponseData = _ResponseData

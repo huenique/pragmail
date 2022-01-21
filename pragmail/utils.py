@@ -8,14 +8,9 @@ import json
 import platform
 import re
 import unicodedata
-from email import (
-    message_from_binary_file,
-    message_from_bytes,
-    message_from_file,
-    message_from_string,
-)
+from email import (message_from_binary_file, message_from_bytes,
+                   message_from_file, message_from_string)
 from email.message import Message
-from io import BufferedIOBase, TextIOBase
 from subprocess import DEVNULL as _DEVNULL
 from subprocess import call
 from typing import Any, BinaryIO, Optional, TextIO, Union
@@ -61,7 +56,7 @@ def email_domain(email: str) -> str:
     return email.split("@")[1].split(".")[0]
 
 
-def ping_host(host) -> bool:
+def ping_host(host: str) -> bool:
     """Use the system's network utility to check if the server responds to a
     ping request.
 
@@ -110,7 +105,7 @@ def read_message(
         msg = message_from_string(message)
     elif isinstance(message, BinaryIO):
         msg = message_from_binary_file(message)
-    elif isinstance(message, TextIO):
+    else:
         msg = message_from_file(message)
 
     if as_string:

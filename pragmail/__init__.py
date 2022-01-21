@@ -18,7 +18,7 @@ Example usage:
 >>> client.imap4.logout()
 ('BYE', [b'LOGOUT Requested'])
 """
-from pragmail import utils
+from pragmail import utils as utils
 from pragmail.__version__ import __version__
 from pragmail.clients import Client as Client
 from pragmail.exceptions import CommandError as CommandError
